@@ -68,8 +68,6 @@ $config = [
                     'tokens' =>
                         [
                             '{id}' => '<id:\\d+>',
-                            '{user}' => '<user:.*?>',
-                            '{token}' => '<token:.*?>',
                             '{username}' => '<username:.*?>',
                         ],
                 ],
