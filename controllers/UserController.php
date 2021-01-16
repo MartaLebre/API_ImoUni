@@ -76,9 +76,7 @@ class UserController extends ActiveController
 
         $user->username = \Yii::$app->request->post('username');;
         $user->email = \Yii::$app->request->post('email');;
-        $user->setPassword(\Yii::$app->request->post('password'));
-        $user->generateAuthKey();
-        $user->generateEmailVerificationToken();
+        $user->password = \Yii::$app->request->post('password');
         $userProfile->primeiro_nome = \Yii::$app->request->post('primeiro_nome');
         $userProfile->ultimo_nome = \Yii::$app->request->post('ultimo_nome');
         $userProfile->numero_telemovel = \Yii::$app->request->post('numero_telemovel');
