@@ -114,7 +114,7 @@ class Anuncio extends \yii\db\ActiveRecord
             $username = ""; // set your username
             $password = ""; // set your password
             $client_id = "phpMQTT-publisher"; // unique!
-            $mqtt = new \backend\mosquitto\phpMQTT($server, $port, $client_id);
+            $mqtt = new \app\mosquitto\phpMQTT($server, $port, $client_id);
             if ($mqtt->connect(true, NULL, $username, $password)) {
                 $mqtt->publish($canal, $msg, 0);
                 $mqtt->close();
