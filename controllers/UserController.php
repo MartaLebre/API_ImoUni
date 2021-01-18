@@ -133,4 +133,18 @@ class UserController extends ActiveController
         }
         return "Utilizador não encontrado/atualizado";
     }
+
+    public function actionApagaruser($username)
+    {
+        $statusBan = 1;
+
+        $user = User::findOne(['username' => $username]);
+
+        if ($user != null) {
+            $user->status = $statusBan;
+            $user->save(false);
+        } else {
+            throw new \yii\web\NotFoundHttpException("Utilizador não encontrado");
+        }
+    }
 }

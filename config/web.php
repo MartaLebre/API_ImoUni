@@ -64,10 +64,12 @@ $config = [
                         'POST registo' => 'registo',
                         'POST login' => 'login',
                         'PUT editar/{username}' => 'editar',
+                        'PATCH apagaruser/{username}' => 'apagaruser'
                     ],
                     'tokens' =>
                         [
                             '{id}' => '<id:\\d+>',
+                            '{id_user}' => '<id:\\d+>',
                             '{username}' => '<username:.*?>',
                         ],
                 ],
