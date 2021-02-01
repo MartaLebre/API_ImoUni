@@ -81,8 +81,8 @@ class UserController extends ActiveController
         $userProfile->ultimo_nome = \Yii::$app->request->post('ultimo_nome');
         $userProfile->numero_telemovel = \Yii::$app->request->post('numero_telemovel');
         $userProfile->genero = \Yii::$app->request->post('genero');
-        $userProfile->data_nascimento = \Yii::$app->request->post('data_nascimento');
-        $userProfile->tipo = \Yii::$app->request->post('tipo');
+        //$userProfile->data_nascimento = \Yii::$app->request->post('data_nascimento');
+        //$userProfile->tipo = \Yii::$app->request->post('tipo');
 
         $user->save(false);
         $userProfile->id_user = $user->getId();
