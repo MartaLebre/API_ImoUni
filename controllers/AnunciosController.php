@@ -2,6 +2,10 @@
 
 namespace app\controllers;
 
+use app\models\Casa;
+use app\models\Cozinha;
+use app\models\Quarto;
+use app\models\Sala;
 use Yii;
 use yii\rest\ActiveController;
 use app\models\Anuncio;
@@ -13,6 +17,28 @@ use app\models\Anuncio;
 class AnunciosController extends ActiveController
 {
     public $modelClass = 'app\models\Anuncio';
+
+    public function actionDetalhes($id)
+    {
+        $anuncio = Anuncio::findOne(['id' => $id]);
+
+
+        if($anuncio != null){
+
+            return ['Anuncio' => [
+                'id_proprietario' => $anuncio->id_proprietario,
+                'id_casa' => $anuncio->id_casa,
+                'titulo' => $anuncio->titulo,
+                'preco' => $anuncio->preco,
+                'data_criacao' => $anuncio->data_criacao,
+                'data_disponibilidade' => $anuncio->data_disponibilidade,
+                'despesas_inc' => $anuncio->despesas_inc,
+                'descricao' => $anuncio->descricao,
+            ]];
+        } else {
+            throw new \yii\web\NotFoundHttpException("O utilizador não foi encontrado");
+        }
+    }
 
     public function actionAlterar($id)
     {
