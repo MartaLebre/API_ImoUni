@@ -16,6 +16,7 @@ use Yii;
  * @property string $data_disponibilidade
  * @property int $despesas_inc
  * @property string $descricao
+ * @property int $numero_telemovel
  *
  * @property Perfil $proprietario
  * @property Casa $casa
@@ -38,7 +39,7 @@ class Anuncio extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['id_proprietario', 'id_casa', 'preco', 'despesas_inc'], 'integer'],
+            [['id_proprietario', 'id_casa', 'preco', 'despesas_inc', 'numero_telemovel'], 'integer'],
             [['titulo', 'preco', 'data_criacao', 'data_disponibilidade', 'despesas_inc', 'descricao'], 'required'],
             [['data_criacao', 'data_disponibilidade'], 'safe'],
             [['descricao'], 'string'],
@@ -63,6 +64,7 @@ class Anuncio extends \yii\db\ActiveRecord
             'data_disponibilidade' => 'Data Disponibilidade',
             'despesas_inc' => 'Despesas Inc',
             'descricao' => 'Descricao',
+            'numero_telemovel' => 'numero_telemovel',
         ];
     }
 
@@ -140,6 +142,7 @@ class Anuncio extends \yii\db\ActiveRecord
         $data_disponibilidade = $this->data_disponibilidade;
         $despesas_inc = $this->despesas_inc;
         $descricao = $this->descricao;
+        $numero_telemovel = $this->numero_telemovel;
 
         $myObj = new \stdClass();
         $myObj->id = $id;
@@ -151,6 +154,7 @@ class Anuncio extends \yii\db\ActiveRecord
         $myObj->data_disponibilidade = $data_disponibilidade;
         $myObj->despesas_inc = $despesas_inc;
         $myObj->descricao = $descricao;
+        $myObj->numero_telemovel = $numero_telemovel;
 
 
         $myJSON = json_encode($myObj);

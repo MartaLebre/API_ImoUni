@@ -34,6 +34,7 @@ class AnunciosController extends ActiveController
                 'data_disponibilidade' => $anuncio->data_disponibilidade,
                 'despesas_inc' => $anuncio->despesas_inc,
                 'descricao' => $anuncio->descricao,
+                'numero_telemovel' => $anuncio->numero_telemovel,
             ]];
         } else {
             throw new \yii\web\NotFoundHttpException("O utilizador não foi encontrado");
@@ -47,6 +48,7 @@ class AnunciosController extends ActiveController
         $data_disponibilidade=\Yii::$app->request->post('data_disponibilidade');
         $despesas_inc=\Yii::$app->request->post('despesas_inc');
         $descricao=\Yii::$app->request->post('descricao');
+        $numero_telemovel=\Yii::$app->request->post('numero_telemovel');
 
         $anunciomodel = new $this->modelClass;
 
@@ -58,6 +60,7 @@ class AnunciosController extends ActiveController
             $rec->data_disponibilidade=$data_disponibilidade;
             $rec->despesas_inc=$despesas_inc;
             $rec->descricao=$descricao;
+            $rec->numero_telemovel=$numero_telemovel;
 
             $rec->save();
 
@@ -87,6 +90,7 @@ class AnunciosController extends ActiveController
         $data_disponibilidade=\Yii::$app->request->post('data_disponibilidade');
         $despesas_inc=\Yii::$app->request->post('despesas_inc');
         $descricao=\Yii::$app->request->post('descricao');
+        $numero_telemovel=\Yii::$app->request->post('numero_telemovel');
 
         $anunciomodel = new $this->modelClass;
 
@@ -98,6 +102,7 @@ class AnunciosController extends ActiveController
         $anunciomodel->data_disponibilidade=$data_disponibilidade;
         $anunciomodel->despesas_inc=$despesas_inc;
         $anunciomodel->descricao=$descricao;
+        $anunciomodel->numero_telemovel = $numero_telemovel;
 
         $rec = $anunciomodel->save();
         return ['SaveError' => $rec];

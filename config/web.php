@@ -79,7 +79,7 @@ $config = [
                     'pluralize' => false,
                     'extraPatterns' =>
                         [
-                            'GET {id}/detalhes' => 'detalhes',
+                            'GET detalhes/{id}' => 'detalhes',
                             'PUT alterar/{id}' => 'alterar', //Altera os dados de um anúncio
                             'DELETE apagar/{id}' => 'apagar', //Apaga um anúncio
                             'POST adicionar' => 'adicionar', //Adiciona um anúncio novo
